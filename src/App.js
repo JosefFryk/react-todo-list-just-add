@@ -4,7 +4,7 @@ import List from "./components/List"
 import AddTodo from "./components/AddTodo"
 
 function App() {
-
+// useState is react hook + array destr.
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -19,7 +19,7 @@ function App() {
       item: "Exercise",
     },
   ]);
-
+//  add todo method to help with state
   const addTodo = (todo) => {
     const id = Math.ceil(Math.random()*100000)
     const newTodo = {id, ...todo}
@@ -29,8 +29,8 @@ function App() {
   return (
     <div className="container">
       <Header title="Todo List" />
-      <AddTodo onAdd={addTodo} />
-      <List todos={todos}/>
+      <AddTodo onAdd={addTodo} />     
+      <List todos={todos}/>          {/*components inside list, passing whole array of todos into List.js */}
     </div>
   );
 }
